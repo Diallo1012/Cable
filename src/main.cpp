@@ -1,7 +1,5 @@
 #include <Arduino.h>
 #include "droit.hpp"
-#include "croise.hpp"
-
 
 // Pour les entrées INPUT
 int bran_In1 = 13;
@@ -23,31 +21,27 @@ int bran_out6 = A6;
 int bran_out7 = A5;
 int bran_out8 = A4;
 
-void setup(){
-  pinMode(bran_In1, INPUT);
-  pinMode(bran_In2, INPUT);
-  pinMode(bran_In3, INPUT);
-  pinMode(bran_In4, INPUT);
-  pinMode(bran_In5, INPUT);
-  pinMode(bran_In6, INPUT);
-  pinMode(bran_In7, INPUT);
-  pinMode(bran_In8, INPUT);
+// declaration des objets
 
-  pinMode(bran_out1, OUTPUT);
-  pinMode(bran_out2, OUTPUT);
-  pinMode(bran_out3, OUTPUT);
-  pinMode(bran_out3, OUTPUT);
-  pinMode(bran_out4, OUTPUT);
-  pinMode(bran_out5, OUTPUT);
-  pinMode(bran_out6, OUTPUT);
-  pinMode(bran_out7, OUTPUT);
-  pinMode(bran_out8, OUTPUT);
+//Droit droit1;
+//Croise croise1;
 
+void setup()
+{
+  // Instantiation de l'objet
+  Droit droit1;
+
+  //appelle des fonctions de la classe
+  droit1.envoie_droit();
+  droit1.recoit_droit();
 }
-void loop(){
+void loop()
+{
 
   digitalWrite(bran_out1, HIGH);
 
+  // Si la broche d'entrée est connectée à la broche de sortie
+  // ensemble alors le cable est droit (bran_In1 = bran_out1, bran_In2 = bran_out2, ...)
   if (digitalRead(bran_In1) == HIGH)
   {
     digitalWrite(bran_out1, LOW);
@@ -80,6 +74,8 @@ void loop(){
                 {
                   digitalWrite(bran_out8, LOW);
                 }
+
+                // Si la prémière condition n'est pas vérifiée alors non fonctionnel
                 else
                 {
                   Serial.print("Cable non fonctionnel");
@@ -109,11 +105,15 @@ void loop(){
       {
         Serial.print("Cable non fonctionnel");
       }
-    }else{
-          Serial.print("Cable non fonctionnel");
-        }
-        Serial.println("Cable droit");
+    }
+    else
+    {
+      Serial.print("Cable non fonctionnel");
+    }
+    Serial.println("Cable droit");
   }
+  // Si la broche d'entrée est connectée à la broche de sortie
+  // ensemble alors le cable est croisé (bran_In1 = bran_out3, bran_In2 = bran_out6, bran_In3 = bran_out1, ...)
   else if (digitalRead(bran_In3) == HIGH)
   {
     digitalWrite(bran_out1, LOW);
@@ -175,12 +175,14 @@ void loop(){
       {
         Serial.print("Cable non fonctionnel");
       }
-    }else{
-          Serial.print("Cable non fonctionnel");
-        }
-        Serial.println("Cable croisé");
+    }
+    else
+    {
+      Serial.print("Cable non fonctionnel");
+    }
+    Serial.println("Cable croisé");
   }
-  else 
-  Serial.print("Cable non fonctionnel");
-
+  else
+    Serial.print("Cable non fonctionnel");
+  delay(1000);
 }
