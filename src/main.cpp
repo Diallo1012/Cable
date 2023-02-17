@@ -28,12 +28,7 @@ int bran_out8 = A4;
 
 void setup()
 {
-  // Instantiation de l'objet
-  Droit droit1;
-
-  //appelle des fonctions de la classe
-  droit1.envoie_droit();
-  droit1.recoit_droit();
+  
 }
 void loop()
 {
