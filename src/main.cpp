@@ -114,5 +114,71 @@ void loop(){
         }
         Serial.println("Cable droit");
   }
+  else if (digitalRead(bran_In3) == HIGH)
+  {
+    digitalWrite(bran_out1, LOW);
+    digitalWrite(bran_out2, HIGH);
+    if (digitalRead(bran_In6) == HIGH)
+    {
+      digitalWrite(bran_out2, LOW);
+      digitalWrite(bran_out3, HIGH);
+      if (digitalRead(bran_In3) == HIGH)
+      {
+        digitalWrite(bran_out3, LOW);
+        digitalWrite(bran_out1, HIGH);
+        if (digitalRead(bran_In4) == HIGH)
+        {
+          digitalWrite(bran_out4, LOW);
+          digitalWrite(bran_out4, HIGH);
+          if (digitalRead(bran_In5) == HIGH)
+          {
+            digitalWrite(bran_out5, LOW);
+            digitalWrite(bran_out5, HIGH);
+            if (digitalRead(bran_In6) == HIGH)
+            {
+              digitalWrite(bran_out6, LOW);
+              digitalWrite(bran_out2, HIGH);
+              if (digitalRead(bran_In7) == HIGH)
+              {
+                digitalWrite(bran_out7, LOW);
+                digitalWrite(bran_out8, HIGH);
+                if (digitalRead(bran_In8) == HIGH)
+                {
+                  digitalWrite(bran_out8, LOW);
+                }
+                else
+                {
+                  Serial.print("Cable non fonctionnel");
+                }
+              }
+              else
+              {
+                Serial.print("Cable non fonctionnel");
+              }
+            }
+            else
+            {
+              Serial.print("Cable non fonctionnel");
+            }
+          }
+          else
+          {
+            Serial.print("Cable non fonctionnel");
+          }
+        }
+        else
+        {
+          Serial.print("Cable non fonctionnel");
+        }
+      }
+      else
+      {
+        Serial.print("Cable non fonctionnel");
+      }
+    }else{
+          Serial.print("Cable non fonctionnel");
+        }
+        Serial.println("Cable croisé");
+  }
 
 }
