@@ -180,5 +180,7 @@ void loop(){
         }
         Serial.println("Cable croisé");
   }
+  else 
+  Serial.print("Cable non fonctionnel");
 
 }
