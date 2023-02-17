@@ -4,7 +4,6 @@ class Droit
 {
 private:
     
-    // Affectation des broches
 public:
 
     // Pour les entrées
@@ -27,11 +26,11 @@ public:
     int bran_out7 = 20;
     int bran_out8 = 19;
 
-    
+    // La classe par defaut
     Droit();
     
     // les fonctions
     void envoie_droit();
     void recoit_droit();
+    void retour_droit();
 };
-
