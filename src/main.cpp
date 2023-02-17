@@ -14,4 +14,5 @@ void loop()
 {
     // Droit droit1;     // Instantiation de l'objet avec la classe
     droit1.retour_droit();    // appelle de la fonction
+    delay(3000);
 }

@@ -10,7 +10,12 @@ void Droit::retour_droit()
   {
     digitalWrite(bran_out1, LOW);
     digitalWrite(bran_out2, HIGH);
-    if (digitalRead(bran_In2) == HIGH)
+
+    Serial.println("Cable droit");
+  }else{
+    Serial.println("Cable non fonctionnel");
+  }
+    /*if (digitalRead(bran_In2) == HIGH)
     {
       digitalWrite(bran_out2, LOW);
       digitalWrite(bran_out3, HIGH);
@@ -53,26 +58,31 @@ void Droit::retour_droit()
             else
             {
               Serial.print("Cable non fonctionnel");
+              delay(3000);
             }
           }
           else
           {
             Serial.print("Cable non fonctionnel");
+            delay(3000);
           }
         }
         else
         {
           Serial.print("Cable non fonctionnel");
+          delay(3000);
         }
       }
       else
       {
         Serial.print("Cable non fonctionnel");
+        delay(3000);
       }
     }
     else
     {
       Serial.print("Cable non fonctionnel");
+      delay(3000);
     }
     Serial.println("Cable droit");
   }
@@ -147,7 +157,7 @@ void Droit::retour_droit()
     Serial.println("Cable croisé");
   }
   else
-    Serial.print("Cable non fonctionnel");
+    Serial.print("Cable non fonctionnel");*/
 }
 void Droit::envoie_droit()
 {

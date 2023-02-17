@@ -27,7 +27,7 @@ public:
     int bran_out8 = 19;
 
     // La classe par defaut
-    Droit();
+    //Droit();
     
     // les fonctions
     void envoie_droit();
